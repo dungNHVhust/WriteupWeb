@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo DOMPurify chống XSS</title>
+</head>
+<body>
+    <h1>Demo XSS Protection với DOMPurify</h1>
+    <label for="userInput">Nhập nội dung:</label>
+    <textarea id="userInput" rows="4" cols="50"></textarea>
+    <button onclick="displayContent()">Hiển thị</button>
+    <h2>Kết quả:</h2>
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+    <script>
+        function displayContent() {
+            const userInput = document.getElementById("userInput").value;
+            const sanitizedContent = DOMPurify.sanitize(userInput);
+            document.getElementById("output").innerHTML = sanitizedContent;
+        }
+    </script>
+</body>
+</html>
