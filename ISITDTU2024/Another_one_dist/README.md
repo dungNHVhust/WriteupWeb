@@ -87,5 +87,7 @@ open()  : Mở file. <br>
 Hàm đặc biệt cho import và unload module: <br>
 __import__() :Cho phép import một module mới hoặc lấy lại module đã được import vào bộ nhớ. <br>
 Cách dùng __import__('module_name') có thể thay thế cho câu lệnh import module_name. <br>
+Hàm hữu ích khác : <br>
+eval(), exec() – Thực thi biểu thức hoặc mã nguồn.
         
       
